@@ -79,11 +79,16 @@ function makePanel(/* what data does the panel need? */) {
 
   // TASK 7- Add proper class names to our elements (See index.html for reference)
   // paying attention to the elements that need to start out hidden
-
+  panel.classList.add('panel');
+  panelBar.classList.add('panel-bar');
+  panelContent.classList.add('panel-content', 'toggle-on');
+  panelButtons.classList.add('panel-buttons');
+  openButton.classList.add('panel-btn-open');
+  closeButton.classList.add("panel-btn-close", "hide-btn");
 
   // TASK 8- Set text content using arguments as raw material
   //  and also using the open and close arrows imported at the top of the file
-
+  
 
   // TASK 9- When the 'open' or 'close' buttons are clicked, the content is toggled on/off:
   //  - the open button needs to go away (the 'hide-btn' class name controls this)
@@ -92,10 +97,11 @@ function makePanel(/* what data does the panel need? */) {
 
 
   // don't forget to return the panel!
-  return null
+  return panel
 }
 
-
+const testPanel = makePanel({title: 'foo', content: 'bar'});
+accordion.appendChild(testPanel)
 // TASK 10- Loop through the panelData we imported from the data folder
 //  creating panels for each content and title and append them to the DOM.
 //  We can do this with a single forEach, or with a map and a forEach.
